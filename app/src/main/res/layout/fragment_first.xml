@@ -11,6 +11,12 @@
         android:id="@+id/fragmentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Это SampleFragment"
+        android:text="Это FirstFragment"
         android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/buttonGoToFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть FirstFragment"/>
 </LinearLayout>

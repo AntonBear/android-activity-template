@@ -6,25 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.anton.android_app_template.databinding.FragmentMainBinding
+import com.anton.android_app_template.databinding.FragmentThirdBinding
 
-class MainFragment : Fragment() {
+class ThirdFragment : Fragment() {
 
-    private var _binding: FragmentMainBinding? = null
+    private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonGoToFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
+        // Кнопка перехода на FirstFragment
+        binding.buttonToFirst.setOnClickListener {
+            findNavController().navigate(R.id.action_third_to_first)
         }
     }
 
