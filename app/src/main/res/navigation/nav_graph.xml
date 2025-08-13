@@ -1,23 +1,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.anton.android_app_template.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
-    </fragment>
+    app:startDestination="@id/firstFragment">
 
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.anton.android_app_template.FirstFragment"
         android:label="FirstFragment" >
         <action
-            android:id="@+id/action_first_to_third"
+            android:id="@+id/action_first_to_second"
+            app:destination="@id/secondFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.anton.android_app_template.SecondFragment"
+        android:label="SecondFragment" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
     </fragment>
 

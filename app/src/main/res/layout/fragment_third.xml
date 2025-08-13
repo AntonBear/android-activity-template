@@ -8,14 +8,12 @@
 
     <TextView
         android:text="Third Fragment"
-        android:textSize="24sp"
-        android:layout_marginBottom="24dp"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
     <Button
         android:id="@+id/buttonToFirst"
-        android:text="Go to First Fragment"
+        android:text="Открыть First Fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>

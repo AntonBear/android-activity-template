@@ -7,9 +7,15 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/fragmentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Это SecondFragment"
+        android:textSize="20sp"/>
     <Button
         android:id="@+id/buttonGoToFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Открыть FirstFragment"/>
+        android:text="Открыть thirdFragment"/>
 </LinearLayout>
