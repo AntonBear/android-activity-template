@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         binding.buttonNext.setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
         }
+        binding.buttonFragment.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, SampleFragment())
+                .addToBackStack(null) // чтобы можно было вернуться назад
+                .commit()
+        }
     }
 
     override fun onStart() {
@@ -55,6 +61,6 @@ class MainActivity : AppCompatActivity() {
     private fun updateStatus(method: String) {
         binding.statusText.text = "Текущий метод: $method"
         Log.d("Activity lifeCycle", "MainActivity lifeCycle $method")
-        println("Жизненный цикл: $method") // Логи в Logcat
+        println("Жизненный цикл: $method")
     }
 }
