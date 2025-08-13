@@ -1,25 +1,22 @@
 package com.anton.android_app_template
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.anton.android_app_template.databinding.ActivityMainBinding
+import com.anton.android_app_template.databinding.ActivitySecondBinding
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySecondBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         updateStatus("onCreate()")
-        binding.buttonNext.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
-        }
     }
 
     override fun onStart() {
@@ -53,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateStatus(method: String) {
-        binding.statusText.text = "Текущий метод: $method"
-        Log.d("Activity lifeCycle", "MainActivity lifeCycle $method")
-        println("Жизненный цикл: $method") // Логи в Logcat
+        val oldText = binding.statusText.text
+        binding.statusText.text = "$oldText\n$method"
+        Log.d("Activity lifeCycle", "SecondActivity lifeCycle $method")
     }
 }
