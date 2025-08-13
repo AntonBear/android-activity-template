@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        updateStatus("start onCreate()")
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             logNavControllerStackCompat()
             logFragmentManager()
         }
+        updateStatus("end onCreate()")
+
     }
 
     // Логирование FragmentManager
@@ -68,4 +72,40 @@ class MainActivity : AppCompatActivity() {
         Log.d("NavBackStack", "NavController BackStack: $stackStrings")
     }
 
+
+
+
+    override fun onStart() {
+        super.onStart()
+        updateStatus("onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateStatus("onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        updateStatus("onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        updateStatus("onStop()")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        updateStatus("onRestart()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        updateStatus("onDestroy()")
+    }
+
+    private fun updateStatus(method: String) {
+        Log.d("FragmentLifeCycle", "MainActivity lifeCycle $method")
+    }
 }

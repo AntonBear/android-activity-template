@@ -15,22 +15,6 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonGoToFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_first_to_second)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onAttach()")
@@ -41,6 +25,21 @@ class FirstFragment : Fragment() {
         Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreate()")
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreateView()")
+        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onViewCreated()")
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonGoToFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_first_to_second)
+        }
+    }
 
     override fun onStart() {
         super.onStart()

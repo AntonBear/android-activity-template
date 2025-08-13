@@ -11,26 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.anton.android_app_template.databinding.FragmentThirdBinding
 
 class ThirdFragment : Fragment() {
-
     private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentThirdBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Кнопка перехода на FirstFragment
-        binding.buttonToFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_third_to_first)
-        }
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,6 +24,22 @@ class ThirdFragment : Fragment() {
         Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreate()")
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreateView()")
+        _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onViewCreated()")
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonToFirst.setOnClickListener {
+            findNavController().navigate(R.id.action_third_to_first)
+        }
+    }
 
     override fun onStart() {
         super.onStart()

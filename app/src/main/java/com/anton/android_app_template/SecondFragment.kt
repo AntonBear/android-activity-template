@@ -15,21 +15,6 @@ class SecondFragment : Fragment() {
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonGoToFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
-        }
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onAttach()")
@@ -40,6 +25,23 @@ class SecondFragment : Fragment() {
         Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreate()")
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreateView()")
+
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onViewCreated()")
+
+        binding.buttonGoToFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+        }
+    }
 
     override fun onStart() {
         super.onStart()
