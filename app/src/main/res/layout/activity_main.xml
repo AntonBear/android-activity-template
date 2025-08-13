@@ -6,29 +6,13 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Текущий метод:"
-        android:textSize="18sp"/>
-
-    <Button
-        android:id="@+id/buttonNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Открыть SecondActivity"/>
-
-    <Button
-        android:id="@+id/buttonFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Показать Fragment"/>
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EEEEEE"/>
-
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true" />
 </LinearLayout>
