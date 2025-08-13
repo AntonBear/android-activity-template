@@ -43,14 +43,15 @@ class MainActivity : AppCompatActivity() {
 
     // Логирование FragmentManager
     private fun logFragmentManager() {
-        val fragments = supportFragmentManager.fragments.map { it::class.java.simpleName }
-        Log.d("FragmentManagerState", "Fragments в SupportFragmentManager: $fragments")
+        // Внешний FragmentManager (Activity)
+        val outerFragments = supportFragmentManager.fragments.map { it::class.java.simpleName }
+        Log.d("FragmentManagerState", "Fragments в SupportFragmentManager (внешний уровень): $outerFragments")
 
-        // Также можно глянуть внутренние фрагменты в NavHostFragment
+        // Внутренний FragmentManager (NavHostFragment)
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val childFragments = navHostFragment.childFragmentManager.fragments.map { it::class.java.simpleName }
-        Log.d("FragmentManagerState", "Fragments внутри NavHostFragment: $childFragments")
+        val innerFragments = navHostFragment.childFragmentManager.fragments.map { it::class.java.simpleName }
+        Log.d("FragmentManagerState", "Fragments внутри NavHostFragment (внутренний уровень): $innerFragments")
     }
 
     // Логирование стека NavController

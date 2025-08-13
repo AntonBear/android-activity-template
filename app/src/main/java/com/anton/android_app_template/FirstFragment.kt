@@ -23,18 +23,6 @@ class FirstFragment : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("FragmentLifeCycle", "onAttach()")
-        logFragmentManager()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("FragmentLifeCycle", "onCreate()")
-        logFragmentManager()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -42,46 +30,52 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onAttach()")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onCreate()")
+    }
+
+
     override fun onStart() {
         super.onStart()
-        Log.d("FragmentLifeCycle", "onStart()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onStart()")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("FragmentLifeCycle", "onResume()")
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onResume()")
         logFragmentManager()
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("FragmentLifeCycle", "onPause()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onPause()")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("FragmentLifeCycle", "onStop()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onStop()")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d("FragmentLifeCycle", "onDestroyView()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onDestroyView()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("FragmentLifeCycle", "onDestroy()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onDestroy()")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.d("FragmentLifeCycle", "onDetach()")
-        logFragmentManager()
+        Log.d("FragmentLifeCycle", "${javaClass.simpleName}:onDetach()")
     }
 
     private fun logFragmentManager() {
